@@ -4,16 +4,14 @@ function getTitleCase(input) {
 
   var words_uppercase = [];
   words.forEach(function(word, index) {
-    if (index === 0 || index === words.length - 1) {
+    var isNotExceptionWord = ignore.indexOf(word) === -1;
+    var isFirstOrLastWord = index === 0 || index === words.length - 1;
+
+    if (isFirstOrLastWord || isNotExceptionWord) {
       words_uppercase.push(word[0].toUpperCase() + word.substring(1));
     } else {
-      if ($.inArray(word, ignore) !== -1) {
-        words_uppercase.push(word);
-      } else {
-        words_uppercase.push(word[0].toUpperCase() + word.substring(1));
-      }
+      words_uppercase.push(word);
     }
-
   });
 
   return words_uppercase.join(" ");
