@@ -4,7 +4,6 @@ function getTitleCase(input) {
 
   var words_uppercase = [];
   words.forEach(function(word, index) {
-    console.log("Index is " + index);
     if (index === 0 || index === words.length - 1) {
       words_uppercase.push(word[0].toUpperCase() + word.substring(1));
     } else {
