@@ -23,8 +23,11 @@ function getTitleCase(input) {
 
 jQuery(document).ready(function() {
   $("#title-case").submit(function(event) {
-    $("#error").empty();
-
+    var title = $("#title").val();
+    var proper_title = getTitleCase(title);
+    $("#proper-title").text(proper_title);
+    $("#result").show();
+    $("#title").val("");
     event.preventDefault();
   });
 });
